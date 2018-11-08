@@ -7,6 +7,7 @@ import (
 )
 
 // 可以从标准输入或者文件列表进行读取
+// 以流式模式读取输入, 然后按需拆分为行
 func main() {
 	counts := make(map[string]int)		// 先初始化记录内容和对应次数的 map
 	files := os.Args[1:]				// 从命令行的第 1 个参数起获取文件路径
@@ -17,6 +18,7 @@ func main() {
 			f, err := os.Open(arg)		// 尝试打开文件
 			if err != nil {				// 如果打开失败, 输出错误信息
 				fmt.Fprintf(os.Stdout, "dup2: %v\n", err)
+				continue				// 继续处理下一个文件
 			}
 			countLines(f, counts)		// 统计当前文件的内容
 			f.Close()					// 关闭文件
