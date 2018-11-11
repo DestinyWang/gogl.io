@@ -50,13 +50,13 @@ func lissajous(out io.Writer) {
 		rect := image.Rect(0, 0, 2*size+1, 2*size+1)	// 创建一个 201 * 201 的画板
 		img := image.NewPaletted(rect, palette)
 		for t := 0.0; t < cycles*2*math.Pi; t += res {	// 内层循环通过设置一些像素为黑色产生一个新的图像
-			x := math.Sin(t)
-			y := math.Sin(t*freq + phase)
-			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), blackIndex)
+			x := math.Sin(t)							// x 轴是正弦函数
+			y := math.Sin(t*freq + phase)				// y 轴也是正弦化的,
+			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), blackIndex)	// 每个内层循环通过设置一些色素为黑色产生一个新的图像
 		}
 		phase += 0.1
 		anim.Delay = append(anim.Delay, delay)
-		anim.Image = append(anim.Image, img)
+		anim.Image = append(anim.Image, img)			// 然后追加到 anim 的帧列表中
 	}
-	gif.EncodeAll(out, &anim)
+	gif.EncodeAll(out, &anim)						// 最后写入输出流 out
 }
