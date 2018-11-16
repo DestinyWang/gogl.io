@@ -4,7 +4,6 @@ package main
 
 import (
 	"bytes"
-	"fmt"
 )
 
 func comma(s string) string {
@@ -19,6 +18,3 @@ func comma(s string) string {
 	return buff.String()
 }
 
-func main() {
-	fmt.Println(comma("12345"))
-}
