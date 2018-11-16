@@ -1,12 +1,12 @@
 // 练习 3.10
 // 编写一个非递归的 comma 函数, 运用 bytes.Buffer, 而不是简单的字符串拼接
-package main
+package exercises
 
 import (
 	"bytes"
 )
 
-func comma(s string) string {
+func Comma(s string) string {
 	var buff bytes.Buffer
 	l := len(s)
 	for i := 0; i < l; i++ {

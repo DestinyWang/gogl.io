@@ -1,13 +1,13 @@
 // 联系 3.11
 // 增强 comma 函数的功能, 让其正确处理浮点数, 以及带有可选正负号的数字
-package main
+package exercises
 
 import (
 	"strconv"
 )
 
 // 先将 float64 转换为 string, 然后就可以按原有的逻辑格式化为字符串
-func floatComma(f float64) string {
+func FloatComma(f float64) string {
 	// strconv.FormatFloat 参数列表:
 	// f float64:   需要格式化的浮点数
 	// fmt byte:    b - 无小数部分
@@ -22,5 +22,5 @@ func floatComma(f float64) string {
 	if f > 0 {          // 对正负值做判断
 		s = "+" + s
 	}
-	return comma(s)
+	return Comma(s)
 }
