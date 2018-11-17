@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"study/ch3/5_string/exercises"
+	"gopl/ch3/5_string/exercises"
 )
 
 func main() {
