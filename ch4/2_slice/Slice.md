@@ -61,3 +61,35 @@ type IntSlice struct {
     len, cap    int
 }
 ```
+
+# 2. slice 就地修改
+
+下面的函数 `nonempty.go` 可以从给定的一个字符串列表中取出空字符串并返回一个新的 slice
+
+[nonempty.go](https://github.com/DestinyWang/gogl.io/blob/master/ch4/2_slice/examples/nonempty.go)
+
+此外 slice 还可以用来实现栈:
+
+给定一个空的 slice 元素 stack, 可以使用 append 向 slice 尾部添加元素:
+
+```go
+stack = append(stack, v)        // push v
+top := stack[len(stack)-1]      // top
+stack = stack[:len(stack)-1]    // pop
+```
+
+为了从 slice 中移除一个元素并保留剩余元素的顺序, 可以使用函数 `copy` 来将高位索引的元素向前移动来覆盖被移除元素的所在位置:
+
+```go
+// 需要维护元素顺序
+func remove(slice []int, i int) []int {
+    copy(slice[i:], slice[i+1:])    // 将 i+1 后的所有元素赋值给 i 后的所有元素(最后一个元素会重复)
+    return slice[:len(slice)-1]     // 截取最后一个元素之前的所有元素
+}
+
+// 不需要维护元素顺序
+func remove(slice []int, i int) []int {
+    slice[i] = slice[len(slice)-1]
+    return slice[:len(slice)-1]
+}
+```
