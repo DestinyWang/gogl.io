@@ -74,9 +74,9 @@ func Count(list []string) int {
 
 使用下例可以用来追踪一篇文档中 Unicode 编码出现的次数以及 UTF-8 编码的长度分布
 
-[<<charcount.go>>](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_map/examples/charcount.go)
+[charcount.go](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_map/examples/charcount.go)
 
 map 值类型本身可以是复合数据类型, 如 map 或 slice, 在下例中, graph 的 key 类型是 string, value 类型是一个 `map[string]bool`, 表示一个字符串集合.
 
-[<<graph.go>>](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_maps/examples/graph.go)
+[graph.go](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_maps/examples/graph.go)
 
