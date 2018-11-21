@@ -64,7 +64,7 @@ type IntSlice struct {
 
 # 2. slice 就地修改
 
-下面的函数 `nonempty.go` 可以从给定的一个字符串列表中取出空字符串并返回一个新的 slice
+### 下面的函数 `nonempty.go` 可以从给定的一个字符串列表中取出空字符串并返回一个新的 slice
 
 [nonempty.go](https://github.com/DestinyWang/gogl.io/blob/master/ch4/2_slice/examples/nonempty.go)
 

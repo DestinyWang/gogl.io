@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type tree struct {
 	value       int
 	left, right *tree
@@ -41,5 +43,10 @@ func add(t *tree, value int) *tree {
 }
 
 func main() {
-	
+	t := tree{
+		value:1,
+		left:nil,
+		right:nil,
+	}
+	fmt.Println(t)
 }
