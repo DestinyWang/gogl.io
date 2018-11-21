@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 var graph = make(map[string]map[string]bool)
 
 func addEdge(from, to string) {     // 类似 Map<String, Map<String, Boolean>>
@@ -16,5 +18,5 @@ func hasEdgs(from, to string) bool {
 }
 
 func main() {
-	
+	fmt.Print("\nlen\tcount\n")
 }

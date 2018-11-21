@@ -33,7 +33,7 @@ map 中元素的迭代顺序是不固定的, 不同的实现方式会使用不�
 
 可以通过下面代码查看 map 的遍历顺序
 
-[sequence.go](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_map/examples/sequence.go)
+[sequence.go](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_maps/examples/sequence.go)
 
 通过下标的方式访问 map 时, 总会有值, 如果键在 map 中, 可以得到键对应的值; 否则会得到 map 对应值类型的 `零值`, 如果需要知道 map 是否真的存在这个 key, 那么就需要多接收一个返回值
 
@@ -78,5 +78,5 @@ func Count(list []string) int {
 
 map 值类型本身可以是复合数据类型, 如 map 或 slice, 在下例中, graph 的 key 类型是 string, value 类型是一个 `map[string]bool`, 表示一个字符串集合.
 
-[<<graph.go>>](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_map/examples/graph.go)
+[<<graph.go>>](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_maps/examples/graph.go)
 

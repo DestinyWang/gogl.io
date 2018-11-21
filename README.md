@@ -40,3 +40,6 @@ func main() {
 ```
 
 # 勘误表
+| 页码 | 区域 | 原内容 | 推测错误原因 | 推测正确内容 |
+| :-: | :-: | --- | :-: | --- |
+| 75 | gopl.io/ch4/charcount 代码后第一段 | 如果输入的不是合法的 UTF-8 字符, 那么返回的字符是 `code.ReplacementChar` 并且长度是 1 | ReplacementChar 在 unicode 包下 | ` unicode.ReplacementChar` |

@@ -50,7 +50,7 @@ fmt.Println("%q\n", runes)  // "['H', 'e', 'e', 'l', 'o', ',', ' ', '世', '界'
 
 虽然最方便的用法是 []rune("Hello, 世界"), 但是上面的循环演示了如何使用 append 来为一个 rune 类型的 slice 添加元素
 
-[appendInt.go](https://github.com/DestinyWang/gogl.io/blob/master/ch4/2_slice/examples/appendInt.go)
+[appendInt.go](https://github.com/DestinyWang/gogl.io/blob/master/ch4/2_slices/examples/appendInt.go)
 
 > 内置的 append 函数使用了比这里的 appendInt 更加复杂的增长策略, 通常情况下, 我们并不知道一次 append 调用会不会导致一次新的内存分配, 所以我们不能假设原始的 slice 和调用 append 后的结果指向同一个底层数组, 也无法证明他们指向不同的底层数组, 所以通常 我们将 append 的调用结果再次赋值给传入 append 函数的 slice.
 不仅仅是在调用 append 函数的情况下需要更新 slice 变量, 只要有可能改变 slice 长度或者容量, 或者似的 slice 指向不同的底层数组, 都需要更新 slice 变量, 为了正确使用 slice, 必须记住虽然底层数组的元素是间接引用的, 但 slice 的指针, 长度和容量不是, 只要更新一个 slice 指针, 长度或容量必须使用如上所示的赋值方式. slice 并不是纯引用类型, 而是更像下面这种聚合类型:
