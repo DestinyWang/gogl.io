@@ -17,7 +17,7 @@
 ```go
 // 一次读取整个输入到大块内存
 func main() {
-	counts := make(map[string]int)
+    counts := make(map[string]int)
 	for _, filename := range os.Args[1:] {
 		// ReadFile 函数返回一个可以转化成字符串的字节 slice, 这样它可以被 strings.Split 分割
 		data, err := ioutil.ReadFile(filename)							// 读取文件内容
@@ -38,3 +38,5 @@ func main() {
 	}
 }
 ```
+
+# 勘误表

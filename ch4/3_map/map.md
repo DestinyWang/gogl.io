@@ -45,3 +45,29 @@ if ok {
     /// ~ 表示不存在该 key, age 为 int 型的 零值
 }
 ```
+
+> 有时候我们需要一个 map 并且需求它的键是 slice, 但是因为 map 的 key 必须是可以比较的, 所以这个功能无法直接实现, 但我们可以分成两步:
+第一步, 定义一个帮助函数 k, 将每个键都映射到字符串, 当且仅当 x 和 y 相等的时候, 我们才认为 k(x) == k(y);
+第二步, 可以创建一个 key 为 string 的 map, 在每个 key 被访问的时候, 调用这个帮助函数.
+
+下面的例子通过一个字符串序列表示 map 来记录 add 函数被调用的次数, 帮助函数用 `fmt.Sprintf` 来将一个字符串 slice 转换为一个适合做 map 的 key 的字符串, 使用 `%q` 来格式化 slice 并记录每个字符串的边界.
+
+```go
+var m = make(map[string]int)
+
+// 将 []string 转换为格式化的 string
+func k(list []string) string {
+    return fmt.Sprintf("%q", list)
+}
+
+// 以被格式化的 []string 为 key 进行自增, 来统计调用次数
+func add(list []string) {
+    m[k(list)]++
+}
+
+func Count(list []string) int {
+    return m[k(list)]
+}
+```
+
+同样的方法适用于任何不可直接比较的 key 类型, 不仅仅局限于 slice, 甚至有的时候不希望通过 `==` 来比较相等性, 而是一种自定义的比较方法, 例如字符串不区分大小写的比较, 同样 k(x) 的类型不一定的字符串类型, 任何能够想得到的比较结果的可比较类型都可以.
