@@ -71,3 +71,12 @@ func Count(list []string) int {
 ```
 
 同样的方法适用于任何不可直接比较的 key 类型, 不仅仅局限于 slice, 甚至有的时候不希望通过 `==` 来比较相等性, 而是一种自定义的比较方法, 例如字符串不区分大小写的比较, 同样 k(x) 的类型不一定的字符串类型, 任何能够想得到的比较结果的可比较类型都可以.
+
+使用下例可以用来追踪一篇文档中 Unicode 编码出现的次数以及 UTF-8 编码的长度分布
+
+[<<charcount.go>>](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_map/examples/charcount.go)
+
+map 值类型本身可以是复合数据类型, 如 map 或 slice, 在下例中, graph 的 key 类型是 string, value 类型是一个 `map[string]bool`, 表示一个字符串集合.
+
+[<<graph.go>>](https://github.com/DestinyWang/gogl.io/blob/master/ch4/3_map/examples/graph.go)
+

@@ -24,14 +24,14 @@ func main() {
 			fmt.Fprintf(os.Stderr, "charcount: %v\n", err)
 		}
 		if r == unicode.ReplacementChar && n == 1 { // 如果出现不合法的 UTF-8 字符, 那么返回的字符就是 unicode.ReplacementChar, 并且长度是 1
-			invalid++
+			invalid++                               // 非法字符计数器自增 1
 			continue
 		}
 		counts[r]++
 		utfLen[n]++
 	}
 	fmt.Printf("rune\tcount\n")
-	for c, n := range utfLen {
+	for c, n := range counts {
 		fmt.Printf("%q\t%d\n", c, n)
 	}
 	fmt.Printf("\nlen\tcount\n")
@@ -44,3 +44,27 @@ func main() {
 		fmt.Printf("\n%d invalid UTF-8 characters\n", invalid)
 	}
 }
+// 大家好, 我是destiny!
+//
+// rune    count
+// '好'    1
+// ' '     1
+// '是'    1
+// 'y'     1
+// '\n'    1
+// '大'    1
+// '家'    1
+// 'd'     1
+// 't'     1
+// ','     1
+// '我'    1
+// 'i'     1
+// '!'     1
+// 'e'     1
+// 's'     1
+// 'n'     1
+//
+// len     count
+// 1       11
+// 2       0
+// 3       5
